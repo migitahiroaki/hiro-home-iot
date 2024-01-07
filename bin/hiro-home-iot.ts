@@ -2,6 +2,7 @@
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
 import { SwitchbotWebhookHandlerStack } from '../lib/switchbot-webhook-handler-stack';
+import { PythonLayerStack } from '../lib/python-layer-stack';
 
 const projectName = 'hiro-home-iot';
 
@@ -11,15 +12,26 @@ const env: cdk.Environment = {
 };
 
 const app = new cdk.App();
+
+const pythonLayerStack = new PythonLayerStack(app, 'python-layer-stack', {
+  env,
+  projectName,
+});
+
+const switchbotWebhookHandlerName = 'switchbot-webhook-handler';
+
 const switchbotWebhookHandlerStack = new SwitchbotWebhookHandlerStack(
   app,
   'switchbot-webhook-handler-stack',
   {
     env,
     projectName,
-    ssmPathForKey: '/switchbot-webhook-handler/path-key',
+    switchbotWebhookHandlerName,
+    ssmPathForKey: `/${switchbotWebhookHandlerName}/path-key`,
     lambdaEnvironment: {
       LOG_LEVEL: 'DEBUG',
+      SSM_WEBHOOK_URL: `/${switchbotWebhookHandlerName}/webhook-url`,
     },
+    lambdaLayers: [pythonLayerStack.postWebhookLayer],
   }
 );
