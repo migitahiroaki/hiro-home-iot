@@ -8,4 +8,8 @@ node_modules
 cdk.out
 cdk.context.json
 
+asset/layer/alexa_scraper_libs/python
 asset/layer/*.zip
+
+.pytest_cache
+__pycache__
