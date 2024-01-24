@@ -1,0 +1,2096 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Language" content="ja" />
+    <meta name="robots" content="index,follow" />
+    <title>
+      浄水場前～町田バスセンター 接近情報検索結果 | 接近情報検索 |
+      神奈中バスロケ
+    </title>
+    <meta
+      name="Description"
+      content="神奈中路線の接近情報の検索結果です。系統、行先、経由、所要時分、運賃が確認できます。"
+    />
+    <meta name="Keywords" content="神奈中,バスロケ,バス停,接近情報,結果,PC" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/pc/css/reset.css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/pc/css/common.css"
+      media="all"
+    />
+    <script
+      type="text/javascript"
+      src="/pc/js/jquery-1.7.2.min.js"
+      charset="UTF-8"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/pc/js/common.js"
+      charset="UTF-8"
+    ></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-26877208-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src =
+          ('https:' == document.location.protocol
+            ? 'https://ssl'
+            : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
+    <script language="JavaScript">
+      <!--
+      function doAction1() {
+        aForm = document.form1;
+        aForm.target = '_top';
+        aForm.submit();
+      }
+      //
+      -->
+    </script>
+  </head>
+
+  <body>
+    <div id="headWrap">
+      <div id="header">
+        <p id="logo">
+          <a href="top"
+            ><img
+              src="/pc/images/logo.gif"
+              alt="Kanachu 神奈中バスロケーション 響きあう、明日へ"
+              width="283"
+              height="44"
+          /></a>
+        </p>
+        <div id="headNavi">
+          <ul>
+            <li><a href="http://www.kanachu.co.jp">神奈川中央交通</a></li>
+            <li>
+              <a href="http://www.kanachu.co.jp/dia/"
+                >神奈中バス 時刻表・運賃案内</a
+              >
+            </li>
+          </ul>
+          <!-- /headNavi -->
+        </div>
+        <div id="globalNavi">
+          <ul>
+            <li>
+              <a href="top"
+                ><img
+                  src="/pc/images/navi01.gif"
+                  width="190"
+                  height="33"
+                  alt="トップ"
+                  class="rollover"
+              /></a>
+            </li>
+
+            <li>
+              <a href="searchapproachinfo"
+                ><img
+                  src="/pc/images/navi02on.gif"
+                  width="190"
+                  height="33"
+                  alt="接近情報"
+              /></a>
+            </li>
+
+            <li>
+              <a href="/OERtransfer/searchtransferinfo"
+                ><img
+                  src="/pc/images/navi03.gif"
+                  width="190"
+                  height="33"
+                  alt="バス鉄道乗継案内"
+                  class="rollover"
+              /></a>
+            </li>
+
+            <li>
+              <a href="/pc/usage.html"
+                ><img
+                  src="/pc/images/navi04.gif"
+                  width="190"
+                  height="33"
+                  alt="使い方ガイド"
+                  class="rollover"
+              /></a>
+            </li>
+          </ul>
+          <!-- /globalNavi -->
+        </div>
+
+        <!-- /header -->
+      </div>
+      <!-- /headWrap -->
+    </div>
+
+    <div id="wrapper" class="displayApproachInfo">
+      <div id="contents">
+        <div id="main">
+          <p class="breadcrumb">
+            <a href="top">トップ</a> &gt;
+            <a href="searchapproachinfo">接近情報</a> &gt;
+            <em>接近情報検索結果</em>
+          </p>
+
+          <div class="hgroup01">
+            <h1 class="heading1">接近情報検索結果</h1>
+
+            <p class="btn01">
+              <a href="sendmail?fNO=22006&amp;tNO=22001" target="_blank"
+                ><img
+                  src="/pc/images/bt02.gif"
+                  width="114"
+                  height="27"
+                  alt="携帯へ送る"
+                  class="mr rollover" /></a
+              ><a href="javascript:doAction1()"
+                ><img
+                  src="/pc/images/bt03.gif"
+                  width="114"
+                  height="27"
+                  alt="再検索する"
+                  class="rollover"
+              /></a>
+            </p>
+
+            <!-- /hgroup01 -->
+          </div>
+
+          <div class="wrap">
+            <div class="frameBox01">
+              <h2 class="heading2">乗車バス停</h2>
+              <p class="btn01">
+                <a
+                  href="http://www.kanachu.co.jp/dia/diagram/search?fromStopNo=22006&toStopNo=22001"
+                  ><img
+                    src="/pc/images/bt05.gif"
+                    width="118"
+                    height="25"
+                    alt="時刻表"
+                    class="mr rollover"
+                /></a>
+                <a
+                  href="http://www.kanachu.co.jp/dia/noriba/stopmap?StopNo=22006"
+                  ><img
+                    src="/pc/images/bt06.gif"
+                    width="118"
+                    height="25"
+                    alt="地図情報"
+                    class="rollover"
+                /></a>
+              </p>
+              <p class="text">浄水場前</p>
+              <!-- /frameBox01 -->
+            </div>
+            <div class="frameBox02">
+              <h2 class="heading2">降車バス停</h2>
+              <p class="text">町田バスセンター</p>
+              <!-- /frameBox01 -->
+            </div>
+            <p class="btn02">
+              <a href="displayapproachinfo?fNO=22001&amp;tNO=22006">
+                <img
+                  src="/pc/images/bt04.gif"
+                  width="77"
+                  height="66"
+                  alt="入れ替えて検索"
+                  class="rollover"
+              /></a>
+            </p>
+            <!-- /wrap -->
+          </div>
+
+          <div class="frameArea01">
+            <div class="inner1">
+              <div class="inner2 pa01">
+                <h2 class="heading2-1">浄水場前の接近情報です。</h2>
+                <p>系統番号、経由地、所要時分をご確認の上、御利用下さい</p>
+
+                <div class="hgroup01">
+                  <h3 class="heading3">早い順 1</h3>
+                  <p class="btn02">
+                    <a href="javascript:document.location.reload()"
+                      ><img
+                        src="/pc/images/bt07.gif"
+                        width="130"
+                        height="26"
+                        alt="再読み込み"
+                        class="rollover"
+                    /></a>
+                  </p>
+                  <!-- /hgroup01 -->
+                </div>
+                <div class="wrap">
+                  <div class="col01">
+                    <h4 class="heading4">
+                      <span>バスの系統と、行き先、経由</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>系統</span></th>
+                          <td>
+                            <span class="point"
+                              >町27
+
+                              <a
+                                href="displayrouteinfo?corpno=0&amp;routeno=25027&amp;rtripkbn=2&amp;fromStopNo=22006&amp;toStopNo=22001&amp;routeName=%92%AC27&amp;keikaName=%8E%73%96%AF%95%61%89%40%91%4F%81%45%8D%AA%8A%DD&amp;lastStopName=%92%AC%93%63%83%5E%81%5B%83%7E%83%69%83%8B&amp;fromStopRPS=19&amp;toStopRPS=24"
+                                target="_blank"
+                                ><img
+                                  src="/pc/images/bt08.gif"
+                                  width="124"
+                                  height="21"
+                                  alt="バスルートを表示"
+                                  class="btn01 rollover" /></a
+                            ></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th><span>行き先</span></th>
+                          <td><span class="point">町田ターミナル</span></td>
+                        </tr>
+                        <tr>
+                          <th><span>経由</span></th>
+                          <td><span class="point">市民病院前・根岸</span></td>
+                        </tr>
+
+                        <tr>
+                          <th><span>車両番号</span></th>
+                          <td><span class="point">た22 ※ </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <h4 class="heading4">
+                      <span>乗車バス停から降車バス停までの所要時分</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>所要時分</span></th>
+                          <td><span class="point"> 8分 （予測） </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h4 class="heading4"><span>運賃(大人)</span></h4>
+                    <table class="table04">
+                      <tbody>
+                        <tr>
+                          <th><span>現金</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                          <th><span>IC</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <p>
+                      ※印はノンステップバスです。 ★印はワンステップバスです。<br />
+                      <!--  Ｌ印はリフト付きバスです。 -->Ｔ印はＴｗｉｎＬｉｎｅｒです。<br />
+                      運行状況により、所要時分は異なります。目安としてお考えください。<br />
+                      <span class="color01"
+                        >「この便は、正確な情報が提供出来ていない可能性があります。」と表示されている際は、「車載器等の故障」、「運行予定の車両と別の車両で運行中」、「大幅な遅延」等の可能性があります。担当営業所までお問い合わせください。</span
+                      >
+                    </p>
+                    <!-- /col01 -->
+                  </div>
+
+                  <div class="col02">
+                    <div class="hgroup01">
+                      <h4 class="mt10">
+                        <img
+                          src="/pc/images/ti02.gif"
+                          width="364"
+                          height="36"
+                          alt="接近情報"
+                        />
+                      </h4>
+                      <p class="text01">(最終更新 16:46）</p>
+                      <!-- /hgroup01 -->
+                    </div>
+                    <div class="frameBox03">
+                      <p class="title01">
+                        浄水場前にあと<span class="color01">2分</span
+                        >で到着　運行中 （<span class="color02">4分</span>遅れ）
+                      </p>
+
+                      <div class="wrap">
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>木曽</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>三家</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01 nowStation">
+                          <div class="inner">
+                            <p>木曽住宅</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>滝の沢</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01 departure">
+                          <div class="inner">
+                            <p>
+                              浄水場前
+
+                              <span class="notes">（0:48着予定）</span>
+                            </p>
+
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+                        <!-- /wrap -->
+                      </div>
+                      <!-- /frameBox03 -->
+                    </div>
+                    <!-- /col02 -->
+                  </div>
+                  <!-- /wrap -->
+                </div>
+                <!-- advertisement-->
+
+                <p class="mt10"></p>
+                <div class="advertisement-flex">
+                  <div class="col01">
+                    <script type="text/javascript">
+                      var microadCompass = microadCompass || {};
+                      microadCompass.queue = microadCompass.queue || [];
+                    </script>
+                    <script
+                      type="text/javascript"
+                      charset="UTF-8"
+                      src="//j.microad.net/js/compass.js"
+                      onload="new microadCompass.AdInitializer().initialize();"
+                      async
+                    ></script>
+                    <div id="44c071955d1e13c6b9c7735e756a1dc8">
+                      <script type="text/javascript">
+                        microadCompass.queue.push({
+                          spot: '44c071955d1e13c6b9c7735e756a1dc8',
+                        });
+                      </script>
+                    </div>
+                  </div>
+                  <div class="col02">
+                    <script type="text/javascript">
+                      var microadCompass = microadCompass || {};
+                      microadCompass.queue = microadCompass.queue || [];
+                    </script>
+                    <script
+                      type="text/javascript"
+                      charset="UTF-8"
+                      src="//j.microad.net/js/compass.js"
+                      onload="new microadCompass.AdInitializer().initialize();"
+                      async
+                    ></script>
+                    <div id="e188eaf286e423389bafca7117008cc5">
+                      <script type="text/javascript">
+                        microadCompass.queue.push({
+                          spot: 'e188eaf286e423389bafca7117008cc5',
+                        });
+                      </script>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt10">
+                  <script type="text/javascript">
+                    var microadCompass = microadCompass || {};
+                    microadCompass.queue = microadCompass.queue || [];
+                  </script>
+                  <script
+                    type="text/javascript"
+                    charset="UTF-8"
+                    src="//j.microad.net/js/compass.js"
+                    onload="new microadCompass.AdInitializer().initialize();"
+                    async
+                  ></script>
+                </p>
+
+                <div id="fcf787afa973d7cbf92582acc08f5a89">
+                  <script type="text/javascript">
+                    microadCompass.queue.push({
+                      spot: 'fcf787afa973d7cbf92582acc08f5a89',
+                    });
+                  </script>
+                </div>
+                <p class="mt10">
+                  <!-- /advertisement-->
+                </p>
+
+                <div class="hgroup01">
+                  <h3 class="heading3">早い順 2</h3>
+                  <p class="btn02">
+                    <a href="javascript:document.location.reload()"
+                      ><img
+                        src="/pc/images/bt07.gif"
+                        width="130"
+                        height="26"
+                        alt="再読み込み"
+                        class="rollover"
+                    /></a>
+                  </p>
+                  <!-- /hgroup01 -->
+                </div>
+                <div class="wrap">
+                  <div class="col01">
+                    <h4 class="heading4">
+                      <span>バスの系統と、行き先、経由</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>系統</span></th>
+                          <td>
+                            <span class="point"
+                              >町39
+
+                              <a
+                                href="displayrouteinfo?corpno=0&amp;routeno=22090&amp;rtripkbn=2&amp;fromStopNo=22006&amp;toStopNo=22001&amp;routeName=%92%AC39&amp;keikaName=%8E%73%97%A7%8E%BA%93%E0%83%76%81%5B%83%8B&amp;lastStopName=%92%AC%93%63%83%6F%83%58%83%5A%83%93%83%5E%81%5B&amp;fromStopRPS=20&amp;toStopRPS=25"
+                                target="_blank"
+                                ><img
+                                  src="/pc/images/bt08.gif"
+                                  width="124"
+                                  height="21"
+                                  alt="バスルートを表示"
+                                  class="btn01 rollover" /></a
+                            ></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th><span>行き先</span></th>
+                          <td><span class="point">町田バスセンター</span></td>
+                        </tr>
+                        <tr>
+                          <th><span>経由</span></th>
+                          <td><span class="point">市立室内プール</span></td>
+                        </tr>
+
+                        <tr>
+                          <th><span>車両番号</span></th>
+                          <td><span class="point">ま95 ※ </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <h4 class="heading4">
+                      <span>乗車バス停から降車バス停までの所要時分</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>所要時分</span></th>
+                          <td><span class="point"> 8分 （予測） </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h4 class="heading4"><span>運賃(大人)</span></h4>
+                    <table class="table04">
+                      <tbody>
+                        <tr>
+                          <th><span>現金</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                          <th><span>IC</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <p>
+                      ※印はノンステップバスです。 ★印はワンステップバスです。<br />
+                      <!--  Ｌ印はリフト付きバスです。 -->Ｔ印はＴｗｉｎＬｉｎｅｒです。<br />
+                      運行状況により、所要時分は異なります。目安としてお考えください。<br />
+                      <span class="color01"
+                        >「この便は、正確な情報が提供出来ていない可能性があります。」と表示されている際は、「車載器等の故障」、「運行予定の車両と別の車両で運行中」、「大幅な遅延」等の可能性があります。担当営業所までお問い合わせください。</span
+                      >
+                    </p>
+                    <!-- /col01 -->
+                  </div>
+
+                  <div class="col02">
+                    <div class="hgroup01">
+                      <h4 class="mt10">
+                        <img
+                          src="/pc/images/ti02.gif"
+                          width="364"
+                          height="36"
+                          alt="接近情報"
+                        />
+                      </h4>
+                      <p class="text01">(最終更新 16:46）</p>
+                      <!-- /hgroup01 -->
+                    </div>
+                    <div class="frameBox03">
+                      <p class="title01">
+                        浄水場前にあと<span class="color01">2分</span
+                        >で到着　運行中 （<span class="color02">4分</span>遅れ）
+                      </p>
+
+                      <div class="wrap">
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>木曽</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>三家</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01 nowStation">
+                          <div class="inner">
+                            <p>木曽住宅</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>滝の沢</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01 departure">
+                          <div class="inner">
+                            <p>
+                              浄水場前
+
+                              <span class="notes">（16:49着予定）</span>
+                            </p>
+
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+                        <!-- /wrap -->
+                      </div>
+                      <!-- /frameBox03 -->
+                    </div>
+                    <!-- /col02 -->
+                  </div>
+                  <!-- /wrap -->
+                </div>
+                <!-- advertisement-->
+
+                <!-- /advertisement-->
+
+                <div class="hgroup01">
+                  <h3 class="heading3">早い順 3</h3>
+                  <p class="btn02">
+                    <a href="javascript:document.location.reload()"
+                      ><img
+                        src="/pc/images/bt07.gif"
+                        width="130"
+                        height="26"
+                        alt="再読み込み"
+                        class="rollover"
+                    /></a>
+                  </p>
+                  <!-- /hgroup01 -->
+                </div>
+                <div class="wrap">
+                  <div class="col01">
+                    <h4 class="heading4">
+                      <span>バスの系統と、行き先、経由</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>系統</span></th>
+                          <td>
+                            <span class="point"
+                              >町30
+
+                              <a
+                                href="displayrouteinfo?corpno=0&amp;routeno=25030&amp;rtripkbn=1&amp;fromStopNo=22006&amp;toStopNo=22001&amp;routeName=%92%AC30&amp;keikaName=%93%B0%82%CC%91%4F%81%45%8F%ED%94%D5%81%45%8D%AA%8A%DD%81%45%95%DB%8C%92%8F%8A%93%FC%8C%FB&amp;lastStopName=%92%AC%93%63%83%5E%81%5B%83%7E%83%69%83%8B&amp;fromStopRPS=31&amp;toStopRPS=36"
+                                target="_blank"
+                                ><img
+                                  src="/pc/images/bt08.gif"
+                                  width="124"
+                                  height="21"
+                                  alt="バスルートを表示"
+                                  class="btn01 rollover" /></a
+                            ></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th><span>行き先</span></th>
+                          <td><span class="point">町田ターミナル</span></td>
+                        </tr>
+                        <tr>
+                          <th><span>経由</span></th>
+                          <td>
+                            <span class="point"
+                              >堂の前・常盤・根岸・保健所入口</span
+                            >
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th><span>車両番号</span></th>
+                          <td><span class="point">た17 ※ </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <h4 class="heading4">
+                      <span>乗車バス停から降車バス停までの所要時分</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>所要時分</span></th>
+                          <td><span class="point"> 9分 （予測） </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h4 class="heading4"><span>運賃(大人)</span></h4>
+                    <table class="table04">
+                      <tbody>
+                        <tr>
+                          <th><span>現金</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                          <th><span>IC</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <p>
+                      ※印はノンステップバスです。 ★印はワンステップバスです。<br />
+                      <!--  Ｌ印はリフト付きバスです。 -->Ｔ印はＴｗｉｎＬｉｎｅｒです。<br />
+                      運行状況により、所要時分は異なります。目安としてお考えください。<br />
+                      <span class="color01"
+                        >「この便は、正確な情報が提供出来ていない可能性があります。」と表示されている際は、「車載器等の故障」、「運行予定の車両と別の車両で運行中」、「大幅な遅延」等の可能性があります。担当営業所までお問い合わせください。</span
+                      >
+                    </p>
+                    <!-- /col01 -->
+                  </div>
+
+                  <div class="col02">
+                    <div class="hgroup01">
+                      <h4 class="mt10">
+                        <img
+                          src="/pc/images/ti02.gif"
+                          width="364"
+                          height="36"
+                          alt="接近情報"
+                        />
+                      </h4>
+                      <p class="text01">(最終更新 16:46）</p>
+                      <!-- /hgroup01 -->
+                    </div>
+                    <div class="frameBox03">
+                      <p class="title01">
+                        浄水場前にあと<span class="color01">4分</span
+                        >で到着　運行中 （<span class="color02">3分</span>遅れ）
+                      </p>
+
+                      <div class="wrap">
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>木曽</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01 nowStation">
+                          <div class="inner">
+                            <p>三家</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>木曽住宅</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>滝の沢</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01 departure">
+                          <div class="inner">
+                            <p>
+                              浄水場前
+
+                              <span class="notes">（16:51着予定）</span>
+                            </p>
+
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+                        <!-- /wrap -->
+                      </div>
+                      <!-- /frameBox03 -->
+                    </div>
+                    <!-- /col02 -->
+                  </div>
+                  <!-- /wrap -->
+                </div>
+                <!-- advertisement-->
+
+                <!-- /advertisement-->
+
+                <div class="hgroup01">
+                  <h3 class="heading3">早い順 4</h3>
+                  <p class="btn02">
+                    <a href="javascript:document.location.reload()"
+                      ><img
+                        src="/pc/images/bt07.gif"
+                        width="130"
+                        height="26"
+                        alt="再読み込み"
+                        class="rollover"
+                    /></a>
+                  </p>
+                  <!-- /hgroup01 -->
+                </div>
+                <div class="wrap">
+                  <div class="col01">
+                    <h4 class="heading4">
+                      <span>バスの系統と、行き先、経由</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>系統</span></th>
+                          <td>
+                            <span class="point"
+                              >町26
+
+                              <a
+                                href="displayrouteinfo?corpno=0&amp;routeno=22024&amp;rtripkbn=2&amp;fromStopNo=22006&amp;toStopNo=22001&amp;routeName=%92%AC26&amp;keikaName=%8D%AA%8A%DD%81%45%90%7D%8E%74&amp;lastStopName=%92%AC%93%63%83%6F%83%58%83%5A%83%93%83%5E%81%5B&amp;fromStopRPS=15&amp;toStopRPS=20"
+                                target="_blank"
+                                ><img
+                                  src="/pc/images/bt08.gif"
+                                  width="124"
+                                  height="21"
+                                  alt="バスルートを表示"
+                                  class="btn01 rollover" /></a
+                            ></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th><span>行き先</span></th>
+                          <td><span class="point">町田バスセンター</span></td>
+                        </tr>
+                        <tr>
+                          <th><span>経由</span></th>
+                          <td><span class="point">根岸・図師</span></td>
+                        </tr>
+
+                        <tr>
+                          <th><span>車両番号</span></th>
+                          <td><span class="point">ま123 ※ </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <h4 class="heading4">
+                      <span>乗車バス停から降車バス停までの所要時分</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>所要時分</span></th>
+                          <td><span class="point"> 9分 （予測） </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h4 class="heading4"><span>運賃(大人)</span></h4>
+                    <table class="table04">
+                      <tbody>
+                        <tr>
+                          <th><span>現金</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                          <th><span>IC</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <p>
+                      ※印はノンステップバスです。 ★印はワンステップバスです。<br />
+                      <!--  Ｌ印はリフト付きバスです。 -->Ｔ印はＴｗｉｎＬｉｎｅｒです。<br />
+                      運行状況により、所要時分は異なります。目安としてお考えください。<br />
+                      <span class="color01"
+                        >「この便は、正確な情報が提供出来ていない可能性があります。」と表示されている際は、「車載器等の故障」、「運行予定の車両と別の車両で運行中」、「大幅な遅延」等の可能性があります。担当営業所までお問い合わせください。</span
+                      >
+                    </p>
+                    <!-- /col01 -->
+                  </div>
+
+                  <div class="col02">
+                    <div class="hgroup01">
+                      <h4 class="mt10">
+                        <img
+                          src="/pc/images/ti02.gif"
+                          width="364"
+                          height="36"
+                          alt="接近情報"
+                        />
+                      </h4>
+                      <p class="text01">(最終更新 16:46）</p>
+                      <!-- /hgroup01 -->
+                    </div>
+                    <div class="frameBox03">
+                      <p class="title01">
+                        浄水場前にあと<span class="color01">6分</span
+                        >で到着　運行中 （<span class="color02">2分</span>遅れ）
+                      </p>
+
+                      <div class="wrap">
+                        <div class="placeArea01 nowStation">
+                          <div class="inner">
+                            <p>木曽</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>三家</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>木曽住宅</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>滝の沢</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01 departure">
+                          <div class="inner">
+                            <p>
+                              浄水場前
+
+                              <span class="notes">（16:52着予定）</span>
+                            </p>
+
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+                        <!-- /wrap -->
+                      </div>
+                      <!-- /frameBox03 -->
+                    </div>
+                    <!-- /col02 -->
+                  </div>
+                  <!-- /wrap -->
+                </div>
+                <!-- advertisement-->
+
+                <!-- /advertisement-->
+
+                <div class="hgroup01">
+                  <h3 class="heading3">早い順 5</h3>
+                  <p class="btn02">
+                    <a href="javascript:document.location.reload()"
+                      ><img
+                        src="/pc/images/bt07.gif"
+                        width="130"
+                        height="26"
+                        alt="再読み込み"
+                        class="rollover"
+                    /></a>
+                  </p>
+                  <!-- /hgroup01 -->
+                </div>
+                <div class="wrap">
+                  <div class="col01">
+                    <h4 class="heading4">
+                      <span>バスの系統と、行き先、経由</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>系統</span></th>
+                          <td>
+                            <span class="point"
+                              >町24
+
+                              <a
+                                href="displayrouteinfo?corpno=0&amp;routeno=22005&amp;rtripkbn=2&amp;fromStopNo=22006&amp;toStopNo=22001&amp;routeName=%92%AC24&amp;keikaName=%8E%73%96%AF%95%61%89%40%91%4F&amp;lastStopName=%92%AC%93%63%83%5E%81%5B%83%7E%83%69%83%8B&amp;fromStopRPS=11&amp;toStopRPS=16"
+                                target="_blank"
+                                ><img
+                                  src="/pc/images/bt08.gif"
+                                  width="124"
+                                  height="21"
+                                  alt="バスルートを表示"
+                                  class="btn01 rollover" /></a
+                            ></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th><span>行き先</span></th>
+                          <td><span class="point">町田ターミナル</span></td>
+                        </tr>
+                        <tr>
+                          <th><span>経由</span></th>
+                          <td><span class="point">市民病院前</span></td>
+                        </tr>
+
+                        <tr>
+                          <th><span>車両番号</span></th>
+                          <td><span class="point">ま93 ※ </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <h4 class="heading4">
+                      <span>乗車バス停から降車バス停までの所要時分</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>所要時分</span></th>
+                          <td><span class="point"> 8分 （予測） </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h4 class="heading4"><span>運賃(大人)</span></h4>
+                    <table class="table04">
+                      <tbody>
+                        <tr>
+                          <th><span>現金</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                          <th><span>IC</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <p>
+                      ※印はノンステップバスです。 ★印はワンステップバスです。<br />
+                      <!--  Ｌ印はリフト付きバスです。 -->Ｔ印はＴｗｉｎＬｉｎｅｒです。<br />
+                      運行状況により、所要時分は異なります。目安としてお考えください。<br />
+                      <span class="color01"
+                        >「この便は、正確な情報が提供出来ていない可能性があります。」と表示されている際は、「車載器等の故障」、「運行予定の車両と別の車両で運行中」、「大幅な遅延」等の可能性があります。担当営業所までお問い合わせください。</span
+                      >
+                    </p>
+                    <!-- /col01 -->
+                  </div>
+
+                  <div class="col02">
+                    <div class="hgroup01">
+                      <h4 class="mt10">
+                        <img
+                          src="/pc/images/ti02.gif"
+                          width="364"
+                          height="36"
+                          alt="接近情報"
+                        />
+                      </h4>
+                      <p class="text01">(最終更新 16:46）</p>
+                      <!-- /hgroup01 -->
+                    </div>
+                    <div class="frameBox03">
+                      <p class="title01">
+                        浄水場前にあと<span class="color01">9分</span
+                        >で到着　運行中 （<span class="color02">1分</span>遅れ）
+                      </p>
+
+                      <div class="wrap">
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>木曽入口</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>三家</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>木曽住宅</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>滝の沢</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01 departure">
+                          <div class="inner">
+                            <p>
+                              浄水場前
+
+                              <span class="notes">（16:55着予定）</span>
+                            </p>
+
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+                        <!-- /wrap -->
+                      </div>
+                      <!-- /frameBox03 -->
+                    </div>
+                    <!-- /col02 -->
+                  </div>
+                  <!-- /wrap -->
+                </div>
+                <!-- advertisement-->
+
+                <!-- /advertisement-->
+
+                <div class="hgroup01">
+                  <h3 class="heading3">早い順 6</h3>
+                  <p class="btn02">
+                    <a href="javascript:document.location.reload()"
+                      ><img
+                        src="/pc/images/bt07.gif"
+                        width="130"
+                        height="26"
+                        alt="再読み込み"
+                        class="rollover"
+                    /></a>
+                  </p>
+                  <!-- /hgroup01 -->
+                </div>
+                <div class="wrap">
+                  <div class="col01">
+                    <h4 class="heading4">
+                      <span>バスの系統と、行き先、経由</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>系統</span></th>
+                          <td>
+                            <span class="point"
+                              >町29
+
+                              <a
+                                href="displayrouteinfo?corpno=0&amp;routeno=25042&amp;rtripkbn=1&amp;fromStopNo=22006&amp;toStopNo=22001&amp;routeName=%92%AC29&amp;keikaName=%8D%F7%94%FC%97%D1%8A%77%89%80%91%4F%81%45%8D%AA%8A%DD%81%45%95%DB%8C%92%8F%8A%93%FC%8C%FB&amp;lastStopName=%92%AC%93%63%83%6F%83%58%83%5A%83%93%83%5E%81%5B&amp;fromStopRPS=18&amp;toStopRPS=23"
+                                target="_blank"
+                                ><img
+                                  src="/pc/images/bt08.gif"
+                                  width="124"
+                                  height="21"
+                                  alt="バスルートを表示"
+                                  class="btn01 rollover" /></a
+                            ></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th><span>行き先</span></th>
+                          <td><span class="point">町田バスセンター</span></td>
+                        </tr>
+                        <tr>
+                          <th><span>経由</span></th>
+                          <td>
+                            <span class="point"
+                              >桜美林学園前・根岸・保健所入口</span
+                            >
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th><span>車両番号</span></th>
+                          <td><span class="point">た3 ※ </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <h4 class="heading4">
+                      <span>乗車バス停から降車バス停までの所要時分</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>所要時分</span></th>
+                          <td><span class="point"> 9分 （予測） </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h4 class="heading4"><span>運賃(大人)</span></h4>
+                    <table class="table04">
+                      <tbody>
+                        <tr>
+                          <th><span>現金</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                          <th><span>IC</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <p>
+                      ※印はノンステップバスです。 ★印はワンステップバスです。<br />
+                      <!--  Ｌ印はリフト付きバスです。 -->Ｔ印はＴｗｉｎＬｉｎｅｒです。<br />
+                      運行状況により、所要時分は異なります。目安としてお考えください。<br />
+                      <span class="color01"
+                        >「この便は、正確な情報が提供出来ていない可能性があります。」と表示されている際は、「車載器等の故障」、「運行予定の車両と別の車両で運行中」、「大幅な遅延」等の可能性があります。担当営業所までお問い合わせください。</span
+                      >
+                    </p>
+                    <!-- /col01 -->
+                  </div>
+
+                  <div class="col02">
+                    <div class="hgroup01">
+                      <h4 class="mt10">
+                        <img
+                          src="/pc/images/ti02.gif"
+                          width="364"
+                          height="36"
+                          alt="接近情報"
+                        />
+                      </h4>
+                      <p class="text01">(最終更新 16:46）</p>
+                      <!-- /hgroup01 -->
+                    </div>
+                    <div class="frameBox03">
+                      <p class="title01">
+                        浄水場前にあと<span class="color01">16分</span
+                        >で到着　運行中 （<span class="color02">4分</span>遅れ）
+                      </p>
+
+                      <div class="wrap">
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>木曽</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>三家</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>木曽住宅</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>滝の沢</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01 departure">
+                          <div class="inner">
+                            <p>
+                              浄水場前
+
+                              <span class="notes">（17:02着予定）</span>
+                            </p>
+
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+                        <!-- /wrap -->
+                      </div>
+                      <!-- /frameBox03 -->
+                    </div>
+                    <!-- /col02 -->
+                  </div>
+                  <!-- /wrap -->
+                </div>
+                <!-- advertisement-->
+
+                <!-- /advertisement-->
+
+                <div class="hgroup01">
+                  <h3 class="heading3">早い順 7</h3>
+                  <p class="btn02">
+                    <a href="javascript:document.location.reload()"
+                      ><img
+                        src="/pc/images/bt07.gif"
+                        width="130"
+                        height="26"
+                        alt="再読み込み"
+                        class="rollover"
+                    /></a>
+                  </p>
+                  <!-- /hgroup01 -->
+                </div>
+                <div class="wrap">
+                  <div class="col01">
+                    <h4 class="heading4">
+                      <span>バスの系統と、行き先、経由</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>系統</span></th>
+                          <td>
+                            <span class="point"
+                              >町24
+
+                              <a
+                                href="displayrouteinfo?corpno=0&amp;routeno=22005&amp;rtripkbn=2&amp;fromStopNo=22006&amp;toStopNo=22001&amp;routeName=%92%AC24&amp;keikaName=%8E%73%96%AF%95%61%89%40%91%4F&amp;lastStopName=%92%AC%93%63%83%5E%81%5B%83%7E%83%69%83%8B&amp;fromStopRPS=11&amp;toStopRPS=16"
+                                target="_blank"
+                                ><img
+                                  src="/pc/images/bt08.gif"
+                                  width="124"
+                                  height="21"
+                                  alt="バスルートを表示"
+                                  class="btn01 rollover" /></a
+                            ></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th><span>行き先</span></th>
+                          <td><span class="point">町田ターミナル</span></td>
+                        </tr>
+                        <tr>
+                          <th><span>経由</span></th>
+                          <td><span class="point">市民病院前</span></td>
+                        </tr>
+
+                        <tr>
+                          <th><span>車両番号</span></th>
+                          <td><span class="point">ま167 ※ </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <h4 class="heading4">
+                      <span>乗車バス停から降車バス停までの所要時分</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>所要時分</span></th>
+                          <td><span class="point"> 8分 （通常） </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h4 class="heading4"><span>運賃(大人)</span></h4>
+                    <table class="table04">
+                      <tbody>
+                        <tr>
+                          <th><span>現金</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                          <th><span>IC</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <p>
+                      ※印はノンステップバスです。 ★印はワンステップバスです。<br />
+                      <!--  Ｌ印はリフト付きバスです。 -->Ｔ印はＴｗｉｎＬｉｎｅｒです。<br />
+                      運行状況により、所要時分は異なります。目安としてお考えください。<br />
+                      <span class="color01"
+                        >「この便は、正確な情報が提供出来ていない可能性があります。」と表示されている際は、「車載器等の故障」、「運行予定の車両と別の車両で運行中」、「大幅な遅延」等の可能性があります。担当営業所までお問い合わせください。</span
+                      >
+                    </p>
+                    <!-- /col01 -->
+                  </div>
+
+                  <div class="col02">
+                    <div class="hgroup01">
+                      <h4 class="mt10">
+                        <img
+                          src="/pc/images/ti02.gif"
+                          width="364"
+                          height="36"
+                          alt="接近情報"
+                        />
+                      </h4>
+                      <p class="text01">(最終更新 16:46）</p>
+                      <!-- /hgroup01 -->
+                    </div>
+                    <div class="frameBox03">
+                      <p class="title01">
+                        山崎団地を16:50発予定<br />
+                        予定通り発車します
+                      </p>
+
+                      <div class="wrap">
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>木曽入口</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>三家</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>木曽住宅</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>滝の沢</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01 departure">
+                          <div class="inner">
+                            <p>
+                              浄水場前
+
+                              <span class="notes">（17:04着予定）</span>
+                            </p>
+
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+                        <!-- /wrap -->
+                      </div>
+                      <!-- /frameBox03 -->
+                    </div>
+                    <!-- /col02 -->
+                  </div>
+                  <!-- /wrap -->
+                </div>
+                <!-- advertisement-->
+
+                <!-- /advertisement-->
+
+                <div class="hgroup01">
+                  <h3 class="heading3">早い順 8</h3>
+                  <p class="btn02">
+                    <a href="javascript:document.location.reload()"
+                      ><img
+                        src="/pc/images/bt07.gif"
+                        width="130"
+                        height="26"
+                        alt="再読み込み"
+                        class="rollover"
+                    /></a>
+                  </p>
+                  <!-- /hgroup01 -->
+                </div>
+                <div class="wrap">
+                  <div class="col01">
+                    <h4 class="heading4">
+                      <span>バスの系統と、行き先、経由</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>系統</span></th>
+                          <td>
+                            <span class="point"
+                              >町30
+
+                              <a
+                                href="displayrouteinfo?corpno=0&amp;routeno=25030&amp;rtripkbn=1&amp;fromStopNo=22006&amp;toStopNo=22001&amp;routeName=%92%AC30&amp;keikaName=%93%B0%82%CC%91%4F%81%45%8F%ED%94%D5%81%45%8D%AA%8A%DD%81%45%95%DB%8C%92%8F%8A%93%FC%8C%FB&amp;lastStopName=%92%AC%93%63%83%5E%81%5B%83%7E%83%69%83%8B&amp;fromStopRPS=31&amp;toStopRPS=36"
+                                target="_blank"
+                                ><img
+                                  src="/pc/images/bt08.gif"
+                                  width="124"
+                                  height="21"
+                                  alt="バスルートを表示"
+                                  class="btn01 rollover" /></a
+                            ></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th><span>行き先</span></th>
+                          <td><span class="point">町田ターミナル</span></td>
+                        </tr>
+                        <tr>
+                          <th><span>経由</span></th>
+                          <td>
+                            <span class="point"
+                              >堂の前・常盤・根岸・保健所入口</span
+                            >
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th><span>車両番号</span></th>
+                          <td><span class="point">た14 ※ </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <h4 class="heading4">
+                      <span>乗車バス停から降車バス停までの所要時分</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>所要時分</span></th>
+                          <td><span class="point"> 9分 （予測） </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h4 class="heading4"><span>運賃(大人)</span></h4>
+                    <table class="table04">
+                      <tbody>
+                        <tr>
+                          <th><span>現金</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                          <th><span>IC</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <p>
+                      ※印はノンステップバスです。 ★印はワンステップバスです。<br />
+                      <!--  Ｌ印はリフト付きバスです。 -->Ｔ印はＴｗｉｎＬｉｎｅｒです。<br />
+                      運行状況により、所要時分は異なります。目安としてお考えください。<br />
+                      <span class="color01"
+                        >「この便は、正確な情報が提供出来ていない可能性があります。」と表示されている際は、「車載器等の故障」、「運行予定の車両と別の車両で運行中」、「大幅な遅延」等の可能性があります。担当営業所までお問い合わせください。</span
+                      >
+                    </p>
+                    <!-- /col01 -->
+                  </div>
+
+                  <div class="col02">
+                    <div class="hgroup01">
+                      <h4 class="mt10">
+                        <img
+                          src="/pc/images/ti02.gif"
+                          width="364"
+                          height="36"
+                          alt="接近情報"
+                        />
+                      </h4>
+                      <p class="text01">(最終更新 16:46）</p>
+                      <!-- /hgroup01 -->
+                    </div>
+                    <div class="frameBox03">
+                      <p class="title01">
+                        浄水場前にあと<span class="color01">30分</span
+                        >で到着　運行中 （<span class="color02">8分</span>遅れ）
+                      </p>
+
+                      <div class="wrap">
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>木曽</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>三家</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>木曽住宅</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>滝の沢</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01 departure">
+                          <div class="inner">
+                            <p>
+                              浄水場前
+
+                              <span class="notes">（17:16着予定）</span>
+                            </p>
+
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+                        <!-- /wrap -->
+                      </div>
+                      <!-- /frameBox03 -->
+                    </div>
+                    <!-- /col02 -->
+                  </div>
+                  <!-- /wrap -->
+                </div>
+                <!-- advertisement-->
+
+                <!-- /advertisement-->
+
+                <div class="hgroup01">
+                  <h3 class="heading3">早い順 9</h3>
+                  <p class="btn02">
+                    <a href="javascript:document.location.reload()"
+                      ><img
+                        src="/pc/images/bt07.gif"
+                        width="130"
+                        height="26"
+                        alt="再読み込み"
+                        class="rollover"
+                    /></a>
+                  </p>
+                  <!-- /hgroup01 -->
+                </div>
+                <div class="wrap">
+                  <div class="col01">
+                    <h4 class="heading4">
+                      <span>バスの系統と、行き先、経由</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>系統</span></th>
+                          <td>
+                            <span class="point"
+                              >町26
+
+                              <a
+                                href="displayrouteinfo?corpno=0&amp;routeno=22024&amp;rtripkbn=2&amp;fromStopNo=22006&amp;toStopNo=22001&amp;routeName=%92%AC26&amp;keikaName=%8D%AA%8A%DD%81%45%90%7D%8E%74&amp;lastStopName=%92%AC%93%63%83%6F%83%58%83%5A%83%93%83%5E%81%5B&amp;fromStopRPS=15&amp;toStopRPS=20"
+                                target="_blank"
+                                ><img
+                                  src="/pc/images/bt08.gif"
+                                  width="124"
+                                  height="21"
+                                  alt="バスルートを表示"
+                                  class="btn01 rollover" /></a
+                            ></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th><span>行き先</span></th>
+                          <td><span class="point">町田バスセンター</span></td>
+                        </tr>
+                        <tr>
+                          <th><span>経由</span></th>
+                          <td><span class="point">根岸・図師</span></td>
+                        </tr>
+
+                        <tr>
+                          <th><span>車両番号</span></th>
+                          <td><span class="point">ま16 ※ </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <h4 class="heading4">
+                      <span>乗車バス停から降車バス停までの所要時分</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>所要時分</span></th>
+                          <td><span class="point"> 10分 （通常） </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h4 class="heading4"><span>運賃(大人)</span></h4>
+                    <table class="table04">
+                      <tbody>
+                        <tr>
+                          <th><span>現金</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                          <th><span>IC</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <p>
+                      ※印はノンステップバスです。 ★印はワンステップバスです。<br />
+                      <!--  Ｌ印はリフト付きバスです。 -->Ｔ印はＴｗｉｎＬｉｎｅｒです。<br />
+                      運行状況により、所要時分は異なります。目安としてお考えください。<br />
+                      <span class="color01"
+                        >「この便は、正確な情報が提供出来ていない可能性があります。」と表示されている際は、「車載器等の故障」、「運行予定の車両と別の車両で運行中」、「大幅な遅延」等の可能性があります。担当営業所までお問い合わせください。</span
+                      >
+                    </p>
+                    <!-- /col01 -->
+                  </div>
+
+                  <div class="col02">
+                    <div class="hgroup01">
+                      <h4 class="mt10">
+                        <img
+                          src="/pc/images/ti02.gif"
+                          width="364"
+                          height="36"
+                          alt="接近情報"
+                        />
+                      </h4>
+                      <p class="text01">(最終更新 16:46）</p>
+                      <!-- /hgroup01 -->
+                    </div>
+                    <div class="frameBox03">
+                      <p class="title01">
+                        野津田車庫を17:00発予定 (発車から20分)
+                      </p>
+
+                      <div class="wrap">
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>木曽</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>三家</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>木曽住宅</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>滝の沢</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01 departure">
+                          <div class="inner">
+                            <p>
+                              浄水場前
+
+                              <span class="notes">（17:20着予定）</span>
+                            </p>
+
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+                        <!-- /wrap -->
+                      </div>
+                      <!-- /frameBox03 -->
+                    </div>
+                    <!-- /col02 -->
+                  </div>
+                  <!-- /wrap -->
+                </div>
+                <!-- advertisement-->
+
+                <!-- /advertisement-->
+
+                <div class="hgroup01">
+                  <h3 class="heading3">早い順 10</h3>
+                  <p class="btn02">
+                    <a href="javascript:document.location.reload()"
+                      ><img
+                        src="/pc/images/bt07.gif"
+                        width="130"
+                        height="26"
+                        alt="再読み込み"
+                        class="rollover"
+                    /></a>
+                  </p>
+                  <!-- /hgroup01 -->
+                </div>
+                <div class="wrap">
+                  <div class="col01">
+                    <h4 class="heading4">
+                      <span>バスの系統と、行き先、経由</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>系統</span></th>
+                          <td>
+                            <span class="point"
+                              >町37
+
+                              <a
+                                href="displayrouteinfo?corpno=0&amp;routeno=22110&amp;rtripkbn=2&amp;fromStopNo=22006&amp;toStopNo=22001&amp;routeName=%92%AC37&amp;keikaName=%8E%73%96%AF%95%61%89%40%91%4F&amp;lastStopName=%92%AC%93%63%83%6F%83%58%83%5A%83%93%83%5E%81%5B&amp;fromStopRPS=15&amp;toStopRPS=20"
+                                target="_blank"
+                                ><img
+                                  src="/pc/images/bt08.gif"
+                                  width="124"
+                                  height="21"
+                                  alt="バスルートを表示"
+                                  class="btn01 rollover" /></a
+                            ></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th><span>行き先</span></th>
+                          <td><span class="point">町田バスセンター</span></td>
+                        </tr>
+                        <tr>
+                          <th><span>経由</span></th>
+                          <td><span class="point">市民病院前</span></td>
+                        </tr>
+
+                        <tr>
+                          <th><span>車両番号</span></th>
+                          <td><span class="point">ま23 ※ </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <h4 class="heading4">
+                      <span>乗車バス停から降車バス停までの所要時分</span>
+                    </h4>
+                    <table class="table01">
+                      <tbody>
+                        <tr>
+                          <th><span>所要時分</span></th>
+                          <td><span class="point"> 10分 （通常） </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h4 class="heading4"><span>運賃(大人)</span></h4>
+                    <table class="table04">
+                      <tbody>
+                        <tr>
+                          <th><span>現金</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                          <th><span>IC</span></th>
+                          <td><span class="point"> 230円 </span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <p>
+                      ※印はノンステップバスです。 ★印はワンステップバスです。<br />
+                      <!--  Ｌ印はリフト付きバスです。 -->Ｔ印はＴｗｉｎＬｉｎｅｒです。<br />
+                      運行状況により、所要時分は異なります。目安としてお考えください。<br />
+                      <span class="color01"
+                        >「この便は、正確な情報が提供出来ていない可能性があります。」と表示されている際は、「車載器等の故障」、「運行予定の車両と別の車両で運行中」、「大幅な遅延」等の可能性があります。担当営業所までお問い合わせください。</span
+                      >
+                    </p>
+                    <!-- /col01 -->
+                  </div>
+
+                  <div class="col02">
+                    <div class="hgroup01">
+                      <h4 class="mt10">
+                        <img
+                          src="/pc/images/ti02.gif"
+                          width="364"
+                          height="36"
+                          alt="接近情報"
+                        />
+                      </h4>
+                      <p class="text01">(最終更新 16:46）</p>
+                      <!-- /hgroup01 -->
+                    </div>
+                    <div class="frameBox03">
+                      <p class="title01">
+                        やくし台センターを17:05発予定 (発車から17分)
+                      </p>
+
+                      <div class="wrap">
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>原田向</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>緑ヶ丘入口</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>木曽中原</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01">
+                          <div class="inner">
+                            <p>滝の沢</p>
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+
+                        <div class="placeArea01 departure">
+                          <div class="inner">
+                            <p>
+                              浄水場前
+
+                              <span class="notes">（17:22着予定）</span>
+                            </p>
+
+                            <!-- /inner1 -->
+                          </div>
+                          <!-- /placeArea01 -->
+                        </div>
+                        <!-- /wrap -->
+                      </div>
+                      <!-- /frameBox03 -->
+                    </div>
+                    <!-- /col02 -->
+                  </div>
+                  <!-- /wrap -->
+                </div>
+                <!-- advertisement-->
+
+                <!-- /advertisement-->
+
+                <form method="get" name="form1" action="searchapproachinfo">
+                  <input type="hidden" name="fNM" value="浄水場前" />
+                  <input type="hidden" name="tNM" value="町田バスセンター" />
+                  <p class="mt10 center">
+                    <a href="javascript:doAction1()"
+                      ><img
+                        src="/pc/images/bt09.gif"
+                        width="119"
+                        height="25"
+                        alt="再検索する"
+                        class="rollover"
+                    /></a>
+                  </p>
+                </form>
+
+                <!-- /inner2 -->
+              </div>
+              <!-- /inner1 -->
+            </div>
+            <!-- /frameArea01 -->
+          </div>
+          <!-- /main -->
+        </div>
+
+        <!-- /contents -->
+      </div>
+      <!-- /wrapper -->
+    </div>
+
+    <div id="footWrap" class="">
+      <div id="footInner">
+        <div id="footer">
+          <p class="pagetop"><a href="#header">ページトップへ戻る</a></p>
+
+          <div id="footNavi">
+            <ul>
+              <li>
+                <a href="http://www.kanachu.co.jp/rule/">サイト利用規程</a>
+              </li>
+              <li>
+                <a href="http://www.kanachu.co.jp/feedback.html"
+                  >お問い合わせ</a
+                >
+              </li>
+              <li>
+                <a href="http://www.kanachu.co.jp/emergency/"
+                  >緊急事態発生時通報のお願い</a
+                >
+              </li>
+            </ul>
+            <!-- /footNavi -->
+          </div>
+
+          <p id="copyright">Copyright (c) KANACHU All Rights Reserved</p>
+          <!-- /footer -->
+        </div>
+        <!-- /footInner -->
+      </div>
+      <!-- /footWrap -->
+    </div>
+
+    <!-- advertisement-->
+    <div
+      id="float-bnr"
+      style="
+        position: fixed;
+        z-index: 10000;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        display: block;
+        padding-bottom: 1.5px;
+        background: rgba(40, 40, 40, 0.3);
+        filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#50000000,EndColorStr=#50000000);
+      "
+    >
+      <div
+        style="
+          position: relative;
+          display: block;
+          width: 728px;
+          height: 90px;
+          margin: 10px auto 3px;
+          background: #fff;
+          top: 0;
+        "
+      >
+        <script type="text/javascript">
+          var microadCompass = microadCompass || {};
+          microadCompass.queue = microadCompass.queue || [];
+        </script>
+        <script
+          type="text/javascript"
+          charset="UTF-8"
+          src="//j.microad.net/js/compass.js"
+          onload="new microadCompass.AdInitializer().initialize();"
+          async
+        ></script>
+        <div id="4fa836bb1552b75eb86f9e578e0e7d17">
+          <script type="text/javascript">
+            microadCompass.queue.push({
+              spot: '4fa836bb1552b75eb86f9e578e0e7d17',
+            });
+          </script>
+        </div>
+      </div>
+
+      <div
+        id="bnr-close"
+        style="
+          position: absolute;
+          top: 0;
+          right: calc(50% - 400px);
+          width: 24px;
+          height: 24px;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          background: rgba(0, 0, 0, 0.5);
+          background: #000\9;
+          color: #fff;
+          cursor: pointer;
+          font-size: 24px;
+          line-height: 24px;
+          text-align: center;
+        "
+      >
+        &times;
+      </div>
+      <script type="text/javascript">
+        document
+          .getElementById('bnr-close')
+          .addEventListener('click', function () {
+            document.getElementById('float-bnr').style.display = 'none';
+          });
+      </script>
+    </div>
+    <!-- /advertisement-->
+  </body>
+</html>

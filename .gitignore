@@ -13,3 +13,5 @@ asset/layer/*.zip
 
 .pytest_cache
 __pycache__
+
+.experiment
