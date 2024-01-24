@@ -1,8 +1,8 @@
 import os
 import logging
-import boto3
 import json
 import post_webhook
+import resolve_param
 
 
 # ログの設定
@@ -42,11 +42,7 @@ def lambda_handler(event, context):
 
 
 def load_ssm_and_post(message: str):
-    ssm = boto3.client("ssm")
-    response: dict = ssm.get_parameter(
-        Name=os.environ["SSM_WEBHOOK_URL"], WithDecryption=True
-    )
-    webhook_url: str = response["Parameter"]["Value"]
+    webhook_url: str = resolve_param.get_parameter(os.environ["SSM_WEBHOOK_URL"])
     logger.debug(webhook_url)
 
     post_webhook.post_message(logger=logger, webhook_url=webhook_url, message=message)
