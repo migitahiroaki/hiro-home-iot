@@ -6,6 +6,8 @@ import { CommonProps } from '../interface/common-props';
 import { LambdaSetting } from '../interface/lambda-props';
 import { LambdaFunction } from './fragment/lambda-function';
 import { PolicyGeneratorUtil } from './util/policy-generator-util';
+import { NameUtil } from './util/name-util';
+import { StringParameter } from 'aws-cdk-lib/aws-ssm';
 
 export interface AlexaLambdaStackProps extends CommonProps {
   readonly ssmAlexaSkillId: string;
@@ -42,5 +44,19 @@ export class AlexaLambdaStack extends cdk.Stack {
       role: lambdaRole,
       lambdaSetting: props.lambdaSetting,
     });
+    lambdaFunction.constructedLambda.addPermission(
+      NameUtil.generateName(
+        props.projectName,
+        'LambdaResourcePolicy',
+        'AlexaLambda'
+      ),
+      {
+        principal: new iam.ServicePrincipal('alexa-appkit.amazon.com'),
+        eventSourceToken: StringParameter.valueForStringParameter(
+          this,
+          props.ssmAlexaSkillId
+        ),
+      }
+    );
   }
 }

@@ -1,4 +1,10 @@
-import { Effect, PolicyDocument, PolicyStatement } from 'aws-cdk-lib/aws-iam';
+import {
+  Effect,
+  ManagedPolicy,
+  PolicyDocument,
+  PolicyStatement,
+  ServicePrincipal,
+} from 'aws-cdk-lib/aws-iam';
 
 export class PolicyGeneratorUtil {
   public static ssmParameterReadPolicy(
@@ -26,5 +32,18 @@ export class PolicyGeneratorUtil {
     return new PolicyDocument({
       statements: [describeParameterPolicy].concat(getParameterPolicies),
     });
+  }
+
+  public static rolePropsForLambda(roleName: string) {
+    return {
+      roleName: roleName,
+      managedPolicies: [
+        ManagedPolicy.fromAwsManagedPolicyName(
+          'service-role/AWSLambdaBasicExecutionRole'
+        ),
+      ],
+      assumedBy: new ServicePrincipal('lambda.amazonaws.com'),
+      // inlinePolicies: {},
+    };
   }
 }

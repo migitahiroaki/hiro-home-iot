@@ -55,7 +55,7 @@ export class SwitchbotWebhookHandlerStack extends cdk.Stack {
       suffix: props.switchbotWebhookHandlerName,
       role: lambdaRole,
       lambdaSetting: props.lambdaSetting,
-    }).lambdaFunction;
+    }).constructedLambda;
 
     // switchbot-webhookはヘッダなど登録できないので特定のパスパラメータを持ってないと弾くようにする(妥協)
 

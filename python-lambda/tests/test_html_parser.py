@@ -1,4 +1,5 @@
-from util import html_parser as hp
+import kanachu_bus.util.html_parser as hp
+import kanachu_bus
 import logging
 import os
 
@@ -12,7 +13,9 @@ def test_positive(mocker):
         html = f.read()
         url = "https://google.com"
         html_parser = hp.HtmlParser(logger, url)
-        mocker.patch("util.html_parser.HtmlParser.get_request", return_value=html)
+        mocker.patch(
+            "kanachu_bus.util.html_parser.HtmlParser.get_request", return_value=html
+        )
 
         result = html_parser.get_bus_arrival_result(10)
         logger.info(result)

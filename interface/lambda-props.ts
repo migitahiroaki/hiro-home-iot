@@ -17,5 +17,5 @@ export interface LambdaSetting {
   readonly managedLayerArns: string[];
   readonly ssmParamsForlayerArn: string[];
   readonly logRetention: RetentionDays;
-  readonly permissionSettings: { [name: string]: PermissionSetting };
+  // readonly permissionSettings: { [name: string]: PermissionSetting };
 }

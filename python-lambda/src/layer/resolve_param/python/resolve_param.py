@@ -2,6 +2,10 @@ import urllib.request
 import urllib.parse
 import os
 import json
+from aws_lambda_powertools.utilities import parameters
+
+class ResolveParam():
+    
 
 
 def get_parameter(ssm_param_name: str, param_type="SSM_SECURE") -> str:

@@ -13,7 +13,7 @@ interface LambdaFunctionProps {
 }
 
 export class LambdaFunction {
-  public lambdaFunction: lambda.Function;
+  public constructedLambda: lambda.Function;
   constructor(scope: Construct, props: LambdaFunctionProps) {
     const lambdaSetting = props.lambdaSetting;
     const lambdaFunctionName = `${props.parentStackProps.projectName}-Lambda-${props.suffix}`;
@@ -30,7 +30,7 @@ export class LambdaFunction {
       }
     );
 
-    this.lambdaFunction = new lambda.Function(scope, lambdaFunctionName, {
+    this.constructedLambda = new lambda.Function(scope, lambdaFunctionName, {
       role: props.role,
       functionName: lambdaFunctionName,
       handler: lambdaSetting.handler,
@@ -41,20 +41,5 @@ export class LambdaFunction {
       layers: managedLayers.concat(customLayers),
       logRetention: lambdaSetting.logRetention,
     });
-
-    for (const [name, setting] of Object.entries(
-      lambdaSetting.permissionSettings
-    )) {
-      this.lambdaFunction.addPermission(
-        `${props.parentStackProps.projectName}-LambdaResourcePolicy-${name}`,
-        {
-          principal: new iam.ServicePrincipal('alexa-appkit.amazon.com'),
-          eventSourceToken: StringParameter.valueForStringParameter(
-            scope,
-            setting.ssmEventSourceToken
-          ),
-        }
-      );
-    }
   }
 }

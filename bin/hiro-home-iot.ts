@@ -7,6 +7,7 @@ import { PythonLayerStack } from '../lib/python-layer-stack';
 import { RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { AlexaLambdaStack } from '../lib/alexa-lambda-stack';
 import { SsmParameterStack } from '../lib/ssm-parameter-stack';
+import { NotifyDiscordLambdaStack } from '../lib/notify-discord-lambda-stack';
 
 const projectName = 'hiro-home-iot';
 
@@ -41,14 +42,37 @@ const ssmParameterStack = new SsmParameterStack(app, 'ssm-parameter-stack', {
 const pythonLayerStack = new PythonLayerStack(app, 'python-layer-stack', {
   env,
   projectName,
-  postWebhookLayerAssetPath: './asset/layer/post_webhook',
-  alexaScraperLibsLayerPath: './asset/layer/alexa_scraper_libs',
-  resolveParamLayerAssetPath: './asset/layer/resolve_param',
+  postWebhookLayerAssetPath: './python-lambda/layer/post_webhook',
+  alexaScraperLibsLayerPath: './python-lambda/layer/alexa_scraper_libs',
+  resolveParamLayerAssetPath: './python-lambda/layer/resolve_param',
   runtimeProps: {
     compatibleRuntimes: [lambda.Runtime.PYTHON_3_10],
     compatibleArchitectures: [lambda.Architecture.X86_64],
   },
 });
+
+const notifyDiscordLambdaStack = new NotifyDiscordLambdaStack(
+  app,
+  'notify-lambda-discord-stack',
+  {
+    env,
+    projectName,
+    lambdaSetting: {
+      handler: 'lambda_function.lambda_handler',
+      environment: {
+        PARAMETERS_SECRETS_EXTENSION_LOG_LEVEL: 'debug',
+      },
+      managedLayerArns: [
+        'arn:aws:lambda:ap-northeast-1:133490724326:layer:AWS-Parameters-and-Secrets-Lambda-Extension:11',
+      ],
+      ssmParamsForlayerArn: [],
+      code: lambda.AssetCode.fromAsset(`./python-lambda/notify_discord`),
+      runtime: lambda.Runtime.PYTHON_3_10,
+      architecture: lambda.Architecture.X86_64,
+      logRetention: RetentionDays.ONE_MONTH,
+    },
+  }
+);
 
 const switchbotWebhookHandlerName = 'switchbot-webhook-handler';
 
@@ -72,12 +96,10 @@ const switchbotWebhookHandlerStack = new SwitchbotWebhookHandlerStack(
         'arn:aws:lambda:ap-northeast-1:133490724326:layer:AWS-Parameters-and-Secrets-Lambda-Extension:11',
       ],
       ssmParamsForlayerArn: [ssmLayerPostWebhookArn, ssmLayerResolveParamArn],
-      code: lambda.AssetCode.fromAsset(
-        `./asset/${switchbotWebhookHandlerName}`
-      ),
+      code: lambda.AssetCode.fromAsset('./asset/'),
       runtime: lambda.Runtime.PYTHON_3_10,
       architecture: lambda.Architecture.X86_64,
-      permissionSettings: {},
+      // permissionSettings: {},
       logRetention: RetentionDays.ONE_MONTH,
     },
   }
@@ -101,12 +123,12 @@ const alexaLambdaStack = new AlexaLambdaStack(app, 'alexa-lambda-stack', {
       ssmLayerAlexaScraperLibsArn,
       ssmLayerResolveParamArn,
     ],
-    code: lambda.AssetCode.fromAsset('asset/kanachu-bus/', {
+    code: lambda.AssetCode.fromAsset('python-lambda/kanachu-bus/', {
       exclude: ['test', '.pytest_cache'],
     }),
     runtime: lambda.Runtime.PYTHON_3_10,
     architecture: lambda.Architecture.X86_64,
-    permissionSettings: {},
+    // permissionSettings: {},
     logRetention: RetentionDays.ONE_MONTH,
   },
 });
